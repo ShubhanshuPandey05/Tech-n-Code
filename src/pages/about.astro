@@ -1,0 +1,52 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={`About | ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
+  </head>
+  <body class="font-sans antialiased">
+    <Header />
+    <div class="h-20"></div>
+    <main class="px-4 py-8 max-w-4xl mx-auto">
+      <h1 class="text-3xl font-bold mb-4">About Me</h1>
+      <section class="mb-8">
+        <p class="mb-4">
+          Hello! I'm Shubhanshu Pandey, a passionate web developer with a love for modern web technologies. I have extensive experience working with various web development tools and frameworks, including Vite, Tailwind CSS, and Astro. My journey in web development began [X] years ago, and since then, I have been constantly learning and evolving with the industry.
+        </p>
+        <p class="mb-4">
+          The purpose of this blog is to share my knowledge and experience with fellow developers and tech enthusiasts. Whether you're a beginner or a seasoned developer, my goal is to provide valuable insights, tutorials, and best practices that can help you on your journey.
+        </p>
+        <p class="mb-4">
+          When I'm not coding, I enjoy [hobbies/interests], and I love exploring new technologies and staying up-to-date with the latest trends in the tech world.
+        </p>
+      </section>
+      
+      <h2 class="text-2xl font-bold mb-4">What You'll Find Here</h2>
+      <section class="mb-8">
+        <p class="mb-4">
+          On this blog, you can expect to find:
+        </p>
+        <ul class="list-disc list-inside mb-4">
+          <li>In-depth tutorials on Vite, Tailwind CSS, and Astro</li>
+          <li>Tips and best practices for modern web development</li>
+          <li>Articles on the latest trends and technologies in web development</li>
+          <li>Personal insights and experiences from my journey as a developer</li>
+        </ul>
+      </section>
+      
+      <h2 class="text-2xl font-bold mb-4">Stay Connected</h2>
+      <section>
+        <p class="mb-4">
+          I love connecting with fellow developers and tech enthusiasts. Feel free to reach out to me on [social media platforms] or through the contact form on this blog. Let's learn and grow together!
+        </p>
+      </section>
+    </main>
+    <Footer />
+  </body>
+</html>

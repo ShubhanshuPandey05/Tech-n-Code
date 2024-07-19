@@ -1,0 +1,88 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import BlogPost from '../layouts/BlogPost.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+
+const posts = [
+  {
+    title: "Getting Started with Vite",
+    description: "Learn how to set up a new Vite project, explore its folder structure, and understand its basic configuration.",
+    pubDate: "2024-07-18",
+    link: '/blog/getting-started-with-vite',
+    content: "## Getting Started with Vite\n\nVite is a next-generation front-end tooling that provides a fast and modern development experience. Here's how you can set up a new Vite project:\n\n1. Install Vite:\n   ```sh\n   npm init vite@latest my-vite-project\n   cd my-vite-project\n   npm install\n   ```\n\n2. Explore the folder structure:\n   - `index.html`: The entry point of your application.\n   - `src/main.js`: The main JavaScript file.\n   - `vite.config.js`: Configuration file for Vite.\n\n3. Start the development server:\n   ```sh\n   npm run dev\n   ```\n\nNow, your Vite project is up and running!",
+    creditTo:"Tech n Code"
+  },
+  {
+    title: "Getting Started with Tailwind CSS",
+    description: "Learn how to set up Tailwind CSS with Vite, explore its configuration, and create custom components.",
+    pubDate: "2024-07-18",
+    link: '/blog/getting-started-with-tailwind-css',
+    content: "## Getting Started with Tailwind CSS\n\nTailwind CSS is a utility-first CSS framework that allows you to build custom designs without leaving your HTML. To set it up with Vite:\n\n1. Install Tailwind CSS:\n   ```sh\n   npm install -D tailwindcss postcss autoprefixer\n   npx tailwindcss init -p\n   ```\n\n2. Configure `tailwind.config.js`:\n   ```js\n   module.exports = {\n     content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],\n     theme: {\n       extend: {},\n     },\n     plugins: [],\n   };\n   ```\n\n3. Add Tailwind directives to your CSS file:\n   ```css\n   @tailwind base;\n   @tailwind components;\n   @tailwind utilities;\n   ```\n\n4. Start your development server:\n   ```sh\n   npm run dev\n   ```\n\nYou are now ready to use Tailwind CSS in your project!",
+  creditTo:"Tech n Code"
+  },
+  {
+    title: '9 Best AI Tools for Programming Assistance in 2024',
+    description: 'Artificial Intelligence (AI) is revolutionizing software development by enhancing productivity, improving code quality, and automating routine tasks. Developers now have access to various AI-powered tools that assist in coding, debugging, and documentation.',
+    pubDate: '2024-07-17',
+    link: 'https://www.thecrazyprogrammer.com/2024/06/ai-tools-for-programming.html',
+    creditTo: 'The Crazy Programmer',
+  },
+  {
+    title: '5 Tips for Software Developers to Excel in Their Careers',
+    description: 'Software development is central to the technological transformation experienced in every industry. It leads to the creation of problem-solving tools and systems that make businesses and individuals perform tasks better. As a software developer, be competitive and stay',
+    pubDate: '2024-07-17',
+    link: 'https://www.thecrazyprogrammer.com/2024/01/tips-for-software-developers-to-excel-in-their-careers.html',
+    creditTo: 'The Crazy Programmer',
+},
+  {
+    title: '7 Best AI Interview Tools 2024',
+    description: 'In a fast-paced and competitive job marketplace, an interview needs not only good industry knowledge but also a very high level of confidence and adaptability. Luckily, technology provides some of the most innovative solutions that will help the candidates to prepare',
+    pubDate: '2024-07-17',
+    link: 'https://www.thecrazyprogrammer.com/2024/03/ai-interview-tools.html',
+    creditTo: 'The Crazy Programmer',
+  },
+  {
+    title: '8 Best Practices for Writing Clean and Maintainable Code',
+    description: 'In the fast-paced world of software development, writing clean and maintainable code is not just a good practice; it’s a crucial factor in determining the success of a project. In this article, we’ll delve into the best practices that can elevate your coding skills, streamline',
+    pubDate: '2024-07-17',
+    link: 'https://www.thecrazyprogrammer.com/2024/01/best-practices-for-writing-clean-and-maintainable-code.html',
+    creditTo: 'The Crazy Programmer',
+  },
+  {
+    title: "Getting Started with Astro",
+    description: "Learn how to set up a new Astro project, explore its folder structure, and understand its basic features.",
+    pubDate: "2024-07-18",
+    link: "/blog/getting-started-with-astro",
+    content: "## Getting Started with Astro\n\nAstro is a modern static site builder that delivers lightning-fast websites with minimal JavaScript. Here's how to set up an Astro project:\n\n1. Create a new Astro project:\n   ```sh\n   npm create astro@latest\n   ```\n\n2. Follow the prompts to set up your project structure.\n\n3. Explore the folder structure:\n   - `src/pages`: Your website pages.\n   - `src/components`: Reusable components.\n   - `astro.config.mjs`: Configuration file for Astro.\n\n4. Start the development server:\n   ```sh\n   npm run dev\n   ```\n\nYour Astro project is now up and running!",
+	creditTo:"Tech n Code"
+  }
+]
+;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body class="font-sans antialiased">
+    <Header />
+    <div class="h-20"></div>
+    <main class="px-4 py-8 max-w-6xl mx-auto">
+      <h1 class="text-4xl font-bold mb-4">Hello, Coders 🧑‍💻 </h1>
+      <p class="mb-8">
+        Hello, tech enthusiasts! I'm Shubhanshu Pandey, a passionate web developer with a love for modern web technologies. Here, you'll find in-depth tutorials, tips, and best practices on tools like Vite, Tailwind CSS, and Astro. Whether you're a beginner or a seasoned developer, there's something for everyone. Let's dive into the world of web development together!
+      </p>
+      
+      <hr class="mb-8">
+      
+      {posts.map(post => (
+        <BlogPost title={post.title} description={post.description} pubDate={post.pubDate} link={post.link} creditTo={post.creditTo} />
+      ))}
+    </main>
+    <Footer />
+  </body>
+</html>
